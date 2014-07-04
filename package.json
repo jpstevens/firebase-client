@@ -1,6 +1,6 @@
 {
   "name": "firebase-client",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A simple Node.js client for Firebase",
   "main": "dist/firebase-client.js",
   "scripts": {

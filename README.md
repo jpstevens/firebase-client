@@ -2,9 +2,9 @@
 
 [![Build Status](https://travis-ci.org/jpstevens/firebase-client.svg?branch=master)](https://travis-ci.org/jpstevens/firebase-client) [![NPM version](https://badge.fury.io/js/firebase-client.svg)](http://badge.fury.io/js/firebase-client) 
 
-A simple Firebase client for Node.js, based on [oscardelben](https://github.com/oscardelben)'s brilliant [firebase](https://github.com/oscardelben/firebase-ruby) gem.
+A simple Firebase client for Node.js, based on the [firebase](https://github.com/oscardelben/firebase-ruby) gem, by [oscardelben](https://github.com/oscardelben).
 
-## Installation:
+## Installation
 
 ```
 npm install firebase-client
@@ -20,9 +20,9 @@ var firebase = new FirebaseClient({
 });
 ```
 
-## Example Usage:
+## Example Usage
 
-### GET:
+### GET
 
 Gets the value of a resource at the specified path.
 Returns a promise, resolved on a successful HTTP response, or rejected on a client/server error.
@@ -30,7 +30,9 @@ Returns a promise, resolved on a successful HTTP response, or rejected on a clie
 ```javascript
 firebase.get(path);
 ```
-#### Example:
+#### Example
+
+To get the "example" resource:
 
 ```javascript
 firebase
@@ -43,7 +45,20 @@ firebase
 });
 ```
 
-### SET:
+To get **all** resources withing your Firebase instance:
+
+```javascript
+firebase
+.get()
+.then(function(body){
+  console.log(body);
+})
+.fail(function(err){
+  console.log(err);
+});
+```
+
+### SET
 
 Set the value of a resource at the specified path.
 Returns a promise, resolved on a successful HTTP response, or rejected on a client/server error.
@@ -51,7 +66,7 @@ Returns a promise, resolved on a successful HTTP response, or rejected on a clie
 ```javascript
 firebase.set(path, data);
 ```
-#### Example:
+#### Example
 
 ```javascript
 firebase
@@ -64,7 +79,7 @@ firebase
 });
 ```
 
-### PUSH:
+### PUSH
 
 Creates a new child resource under the specified path.
 Returns a promise, resolved on a successful HTTP response, or rejected on a client/server error.
@@ -72,7 +87,7 @@ Returns a promise, resolved on a successful HTTP response, or rejected on a clie
 ```javascript
 firebase.push(path, data);
 ```
-#### Example:
+#### Example
 
 ```javascript
 firebase
@@ -85,7 +100,7 @@ firebase
 });
 ```
 
-### UPDATE:
+### UPDATE
 
 Updates an existing resource at the specified path.
 Returns a promise, resolved on a successful HTTP response, or rejected on a client/server error.
@@ -94,7 +109,7 @@ Returns a promise, resolved on a successful HTTP response, or rejected on a clie
 firebase.update(path, data);
 ```
 
-#### Example:
+#### Example
 
 ```javascript
 firebase
@@ -107,7 +122,7 @@ firebase
 });
 ```
 
-### DELETE:
+### DELETE
 
 Removes resource at specified path.
 Returns a promise, resolved on a successful HTTP response, or rejected on a client/server error.
@@ -116,7 +131,7 @@ Returns a promise, resolved on a successful HTTP response, or rejected on a clie
 firebase.delete(path);
 ```
 
-#### Example:
+#### Example
 
 ```javascript
 firebase
