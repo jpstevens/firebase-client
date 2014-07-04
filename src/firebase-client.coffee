@@ -1,68 +1,31 @@
-Firebase = require "firebase"
-q = require "q"
-
 class FirebaseClient
 
+  FirebaseRequest = require "./firebase-request"
+  FirebaseResponse = require "./firebase-response"
+
   constructor: (config) ->
-    @events = ['value', 'child_added', 'child_changed', 'child_moved', 'child_removed']
-    @appName = config.appName
-    @secretKey = config.secretKey
-    @firebaseUrl = "https://#{@appName}.firebaseio.com"
-    @ref = new Firebase @firebaseUrl
+    if typeof config.url isnt "string"
+      throw new Error "url must be defined"
+    config.url = @formatUrl config.url
+    @request = new FirebaseRequest config, FirebaseResponse
 
-  authorize: ->
-    deferred = q.defer()
-    @ref.auth @secretKey, (err, res) ->
-      if err
-        deferred.reject err
-      else
-        deferred.resolve res
-    deferred.promise
+  set: (path, data = {}, query = {}) ->
+    @request.put path, data
 
-  unauthorize: ->
-    @ref.unauth()
+  get: (path, query = {}) ->
+    @request.get path, query
 
-  resource: (resourcePath) ->
-    resource = @ref
-    (resource = resource.child res) for res in resourcePath.split "."
-    resource
+  push: (path, data = {}, query = {}) ->
+    @request.post path, data, query
 
-  setValue: (resourcePath, value) ->
-    deferred = q.defer()
-    @resource(resourcePath)
-    .set value
-    , (err) ->
-      if err
-        deferred.reject err
-      else
-        deferred.resolve value
-    deferred.promise
+  delete: (path, query = {}) ->
+    @request.delete path, query
 
-  getValue: (resourcePath) ->
-    deferred = q.defer()
-    @resource(resourcePath)
-    .once 'value'
-    , (snapshot) ->
-      deferred.resolve snapshot.val()
-    , (err) ->
-      deferred.reject err
-    deferred.promise
+  update: (path, data) ->
+    @request.patch path, data
 
-  on: (event, resourcePath = "") =>
-    deferred = q.defer()
-    if @events.indexOf(event) < 0
-      err = new Error "Invalid event: #{event}"
-      deferred.reject err
-    @resource(resourcePath)
-    .on event
-    , (snapshot) ->
-      deferred.resolve snapshot.val()
-    , (err) ->
-      deferred.reject err
-    deferred.promise
+  formatUrl: (url = "") ->
+    url = "#{url}/" if url[url.length-1] isnt "/"
+    url
 
-  onValue: (resourcePath) => @on resourcePath, value
-  onChildAdded: (resourcePath) => @on resourcePath, "child_added"
-  onChildChanged: (resourcePath) => @on resourcePath, "child_changed"
-  onChildRemoved: (resourcePath) => @on resourcePath, "child_removed"
-  onChildMoved: (resourcePath) => @on resourcePath, "child_moved"
+module.exports = FirebaseClient
