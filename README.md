@@ -1,6 +1,6 @@
 # firebase-client
 
-
+[![Build Status](https://travis-ci.org/jpstevens/firebase-client.svg?branch=master)](https://travis-ci.org/jpstevens/firebase-client) [![NPM version](https://badge.fury.io/js/firebase-client.svg)](http://badge.fury.io/js/firebase-client) 
 
 A simple Firebase client for Node.js, based on [oscardelben](https://github.com/oscardelben)'s brilliant [firebase](https://github.com/oscardelben/firebase-ruby) gem.
 
@@ -129,6 +129,7 @@ firebase
 });
 ```
 
+## More info:
 
-
+For more information, check out the [Firebase API docs](https://www.firebase.com/docs/rest-api.html).
 
