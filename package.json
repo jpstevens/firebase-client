@@ -6,8 +6,17 @@
   "scripts": {
     "test": "grunt test"
   },
+  "keywords": ["firebase", "rest", "api", "client"],
   "author": "Jack Stevens <jack.stevens@fundingcircle.com>",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jpstevens/firebase-client.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jpstevens/firebase-client/issues"
+  },
+  "homepage": "https://github.com/jpstevens/firebase-client",
   "devDependencies": {
     "grunt-coffeelint": "0.0.10",
     "grunt-contrib-watch": "^0.6.1",
