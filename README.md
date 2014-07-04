@@ -144,7 +144,7 @@ firebase
 });
 ```
 
-## More info:
+## More Info
 
 For more information, check out the [Firebase API docs](https://www.firebase.com/docs/rest-api.html).
 
