@@ -1,0 +1,27 @@
+{
+  "name": "firebase-client",
+  "version": "0.0.1",
+  "description": "A simple Node.js client for Firebase",
+  "main": "dist/firebase-client.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "author": "Jack Stevens <jack.stevens@fundingcircle.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt-coffeelint": "0.0.10",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt": "^0.4.5",
+    "grunt-contrib-coffee": "^0.10.1",
+    "grunt-mocha-test": "^0.11.0",
+    "chai": "^1.9.1",
+    "load-grunt-tasks": "^0.6.0",
+    "coffee-script": "^1.7.1",
+    "sinon": "^1.10.2",
+    "grunt-contrib-clean": "^0.5.0"
+  },
+  "dependencies": {
+    "q": "^1.0.1",
+    "request": "^2.36.0"
+  }
+}
