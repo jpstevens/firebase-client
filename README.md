@@ -1,6 +1,7 @@
 # firebase-client
 
-[![Build Status](https://travis-ci.org/jpstevens/firebase-client.svg?branch=master)](https://travis-ci.org/jpstevens/firebase-client) [![NPM version](https://badge.fury.io/js/firebase-client.svg)](http://badge.fury.io/js/firebase-client) 
+[![Build Status](https://travis-ci.org/jpstevens/firebase-client.svg?branch=master)](https://travis-ci.org/jpstevens/firebase-client) [![NPM version](https://badge.fury.io/js/firebase-client.svg)](http://badge.fury.io/js/firebase-client)
+![Downloads/month](http://img.shields.io/npm/dm/firebase-client.svg)
 
 A simple Firebase client for Node.js, based on the [firebase](https://github.com/oscardelben/firebase-ruby) gem, by [oscardelben](https://github.com/oscardelben).
 
