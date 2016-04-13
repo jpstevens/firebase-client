@@ -1,13 +1,14 @@
 {
   "name": "firebase-client",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A simple Node.js client for Firebase",
   "main": "dist/firebase-client.js",
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test",
+    "prepublish": "grunt test && grunt build"
   },
   "keywords": ["firebase", "rest", "api", "client"],
-  "author": "Jack Stevens <jack.stevens@fundingcircle.com>",
+  "author": "Jack Stevens <jack@applyr.com>",
   "license": "ISC",
   "repository": {
     "type": "git",
